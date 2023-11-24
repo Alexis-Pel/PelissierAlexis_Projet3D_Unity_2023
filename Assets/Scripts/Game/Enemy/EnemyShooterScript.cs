@@ -14,6 +14,7 @@ public class EnemyShooterScript : AbstractEnemyScript
     // Shooter Logic
     override public void OnUpdate()
     {
+        RotateToPlayer();
         MoveToPlayer();
     }
 

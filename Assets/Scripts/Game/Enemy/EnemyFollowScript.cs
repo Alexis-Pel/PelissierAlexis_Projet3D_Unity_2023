@@ -18,6 +18,7 @@ public class EnemyFollowScript : AbstractEnemyScript
     // Follower Logic
     override public void OnUpdate()
     {
+        RotateToPlayer();
         MoveToPlayer();
     }
 }

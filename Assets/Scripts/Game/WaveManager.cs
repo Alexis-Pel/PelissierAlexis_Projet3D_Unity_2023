@@ -44,7 +44,10 @@ public class WaveManager : MonoBehaviour
         {
             if (last_wave)
             {
-                GameManager.winner = true;
+                // Win
+                // GameManager.winner = true;
+
+                // showText();
             }
             else
             {

@@ -63,6 +63,13 @@ public abstract class AbstractEnemyScript : MonoBehaviour
                 OnTimer();
                 m_timer = 0;
             }
+            // Calculate the direction from the enemy to the player.
+            if (m_player)
+            {
+                direction = m_player.transform.position - transform.position;
+            }
+            // Normalize the direction vector to make it unit length.
+            direction.Normalize();
 
             OnUpdate();
         }
@@ -182,19 +189,20 @@ public abstract class AbstractEnemyScript : MonoBehaviour
     {
         if (m_player)
         {
-            // Calculate the direction from the enemy to the player.
-            direction = m_player.transform.position - transform.position;
-            // Normalize the direction vector to make it unit length.
-            direction.Normalize();
-
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            targetRotation.x = 0f;
-            targetRotation.z = 0f;
-
-            transform.DORotateQuaternion(targetRotation, m_rotationSpeed);
-
             // Move the enemy towards the player.
             transform.Translate(m_speed * Time.deltaTime * Vector3.forward);
         }
+    }
+
+    /// <summary>
+    /// Rotate the enemy to the player
+    /// </summary>
+    public void RotateToPlayer()
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        targetRotation.x = 0f;
+        targetRotation.z = 0f;
+
+        transform.DORotateQuaternion(targetRotation, m_rotationSpeed);
     }
 }

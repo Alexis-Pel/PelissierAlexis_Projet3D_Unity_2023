@@ -4926,7 +4926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Dash
   m_speed: 3
-  m_rotationSpeed: 1
+  m_rotationSpeed: 0.1
   _particle: {fileID: 5432598648576979589}
   _audioSource: {fileID: 0}
   Instance: {fileID: 0}
@@ -4936,6 +4936,8 @@ MonoBehaviour:
   m_shootPeriod: 1.3
   direction: {x: 0, y: 0, z: 0}
   m_MoveSpeed: 3
+  m_dashMaterial: {fileID: 2100000, guid: cb28e382f47b54425a35feb32502bfb6, type: 2}
+  m_graphic: {fileID: 7150460562949478649}
   _rigidBody: {fileID: -6571044875141289227}
   _movement: {x: 0, y: 0}
   _dashForce: 10

@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_waveName: 1
   ennemies:
-  - {fileID: 2830349563275486692, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
-  - {fileID: 2830349563275486692, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
-  enemyRate: 2
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  - {fileID: -513656586481683461, guid: 77d171f88107c4cfabe817f8f1412572, type: 3}
+  enemyRate: 0.5
