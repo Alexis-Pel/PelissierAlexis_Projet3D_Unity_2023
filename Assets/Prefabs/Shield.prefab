@@ -123,6 +123,7 @@ MonoBehaviour:
   orbitDistance: 0.5
   rotationSpeed: 1
   isPlayer: 0
+  material: {fileID: 2100000, guid: 274f64d5349eb44a38934e8de0f8a02c, type: 2}
 --- !u!54 &-345132222698678925
 Rigidbody:
   m_ObjectHideFlags: 0

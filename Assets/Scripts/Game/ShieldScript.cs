@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
+using System.Runtime.CompilerServices;
 
 public class ShieldScript : MonoBehaviour
 {
     public Transform player;  // Reference to the player GameObject.
     public float orbitDistance = 1.5f;  // Desired orbit distance.
     public float rotationSpeed; // Rotation speed in degrees per second.
-    private Vector3 direction;
     public bool isPlayer;
+    public Material material;
 
-    private Vector3 mousePosition;
+    private Vector3 direction;
+    // private bool stop = false;
+
+    private void Start()
+    {
+       material.SetColor("_EmissionColor", new Color(255f, 255f, 255f) * 0.006f);
+    }
 
     // Update is called once per frame
     void Update()
@@ -70,5 +78,28 @@ public class ShieldScript : MonoBehaviour
     public Vector3 GetDirection()
     {
         return direction;
+    }
+
+    /// <summary>
+    /// Reflection visual Effect
+    /// </summary>
+    /// <param name="stop"></param>
+    public void Reflection(bool stop)
+    {
+        float intensity;
+        if (stop)
+            intensity = 0.006f;
+        else
+        {
+            intensity = 0.02f;
+            Invoke(nameof(ReflectionOff), 0.05f);
+        }
+
+        material.SetColor("_EmissionColor", new Color(255f, 255f, 255f, 1f) * intensity);
+    }
+
+    private void ReflectionOff()
+    {
+        Reflection(true);
     }
 }

@@ -45,7 +45,6 @@ public class BulletScript : MonoBehaviour
                 isReflecting = false;
                 ReflectBullet(other, material_ff);
                 canFF = true;
-
             }
             else if (other.CompareTag("Player"))
             {
@@ -88,6 +87,8 @@ public class BulletScript : MonoBehaviour
             Vector3 deviationDirection = Vector3.Reflect(transform.forward.normalized, normal);
 
             transform.forward = deviationDirection;
+
+            other.GetComponent<ShieldScript>().Reflection(false);
         }
     }
 
