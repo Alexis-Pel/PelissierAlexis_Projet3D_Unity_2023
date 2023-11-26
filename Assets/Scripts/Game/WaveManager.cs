@@ -43,14 +43,14 @@ public class WaveManager : MonoBehaviour
         if(_remainingEnemies == 0 && show)
         {
             if (last_wave)
-            {
-                // Win
-                // GameManager.winner = true;
-
-                // showText();
-            }
-            else
-            {
+                if (GameSettings.infiniteGameMode)
+                {
+                    _currentWaveIndex = Random.Range(0, _waves.Length);
+                    showText();
+                    last_wave = false;
+                }
+                else { }
+            else{
                 showText();
             }
         }
@@ -96,7 +96,14 @@ public class WaveManager : MonoBehaviour
     // Set wave index and text
     public void SetWave()
     {
-        _currentWaveIndex += 1;
+        if(last_wave && GameSettings.infiniteGameMode)
+        {
+            _currentWaveIndex = _waves.Length - 1;
+        }
+        else
+        {
+            _currentWaveIndex += 1;
+        }
         _waveText.text = string.Format("Wave {0}", _waves[_currentWaveIndex].m_waveName);
     }
 
@@ -184,7 +191,7 @@ public class WaveManager : MonoBehaviour
     {
         // Cancel Spawn
         CancelInvoke(nameof(Spawn));
-        if (!last_wave)
+        if (!last_wave || GameSettings.infiniteGameMode)
         {
             //Change Wave Text
             SetWave();

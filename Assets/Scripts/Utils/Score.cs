@@ -9,4 +9,9 @@ public static class Score
         get { return PlayerPrefs.GetInt("score"); }
         set { PlayerPrefs.SetInt("score", value); }
     }
+    static public int PlayerPrefScoreInfinite
+    {
+        get { return PlayerPrefs.GetInt("score_inf"); }
+        set { PlayerPrefs.SetInt("score_inf", value); }
+    }
 }

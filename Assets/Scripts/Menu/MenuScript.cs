@@ -18,11 +18,26 @@ public class MenuScript : MonoBehaviour
     [SerializeField]
     private TMP_Text time_text;
 
+    [SerializeField]
+    private TMP_Text infScore_text;
+
     private void Awake()
     {
         int index = Random.Range(0, musics.Length);
         AudioSource.PlayOneShot(musics[index]);
+
+        SetText();
+    }
+
+    private void SetText()
+    {
+        // Score at normal mode text
         score_text.text = string.Format("{0}", Score.PlayerPrefScore);
+
+        // Score at infinite mode text
+        infScore_text.text = string.Format("{0}", Score.PlayerPrefScoreInfinite);
+
+        // Time text
         float time = TimeScript.PlayerPrefTime;
         string text;
         if (time == 0)
@@ -31,9 +46,9 @@ public class MenuScript : MonoBehaviour
             text = TimeScript.GetFormattedTime(TimeScript.PlayerPrefTime);
         time_text.text = text;
     }
-
-    public void OnStartButton()
+    public void OnStartButton(bool infiniteMode)
     {
+        GameSettings.infiniteGameMode = infiniteMode;
         // Load game scene
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }

@@ -120,11 +120,22 @@ public class GameManager : MonoBehaviour
         }
 
         // Check Highscore
-        float highscore = Score.PlayerPrefScore;
-        if ((_score > highscore) || highscore == 0)
+        float highscore;
+        if (GameSettings.infiniteGameMode)
         {
-            Score.PlayerPrefScore = _score;
+            highscore = Score.PlayerPrefScoreInfinite;
+
         }
+        else
+        {
+            highscore = Score.PlayerPrefScore;
+        }
+
+        if ((_score > highscore) || highscore == 0)
+            if(GameSettings.infiniteGameMode)
+                Score.PlayerPrefScoreInfinite = _score;
+            else
+                Score.PlayerPrefScore = _score;
 
         if (winner)
         {
