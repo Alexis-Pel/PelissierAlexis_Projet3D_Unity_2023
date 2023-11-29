@@ -25,7 +25,7 @@ public class BulletScript : MonoBehaviour
         direction = Vector3.forward;
         material_origin = child_renderer.material;
         Invoke(nameof(Kill), 3.5f);
-        Invoke(nameof(setActive), 0.15f);
+        Invoke(nameof(setActive), 0.11f);
     }
 
     // Update is called once per frame
