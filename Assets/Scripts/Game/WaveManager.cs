@@ -29,6 +29,9 @@ public class WaveManager : MonoBehaviour
         PrepareWave();
     }
 
+    /// <summary>
+    /// Kill all ennemies on the scene
+    /// </summary>
     static public void clearEnnemies()
     {
         AbstractEnemyScript[] ennemies = FindObjectsOfType<AbstractEnemyScript>();
@@ -49,7 +52,6 @@ public class WaveManager : MonoBehaviour
                     showText();
                     last_wave = false;
                 }
-                else { }
             else{
                 showText();
             }
@@ -62,6 +64,9 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Show Wave Text
+    /// </summary>
     public void showText()
     {
         _waveText.enabled = true;
@@ -70,6 +75,9 @@ public class WaveManager : MonoBehaviour
         start_newWave = true;
     }
 
+    /// <summary>
+    /// Initiate new wave
+    /// </summary>
     public void newWave()
     {
         PrepareWave();
@@ -173,12 +181,7 @@ public class WaveManager : MonoBehaviour
         m_spawners[index].SetPrefab(e);
         m_spawners[index].Spawn();
         _ennemies.RemoveAt(index_enemy);
-        /**
-        if(_ennemies.Count < 5)
-        {
 
-        }
-        **/
         if(_ennemies.Count == 0)
         {
             StopWave();
