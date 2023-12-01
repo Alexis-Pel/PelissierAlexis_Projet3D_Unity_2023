@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,10 +53,25 @@ public class GameManager : MonoBehaviour
 
     static private bool isSpecialWave = false;
 
+    private bool paused = false;
+
     private void Awake()
     {
         m_waveManager.enabled = true;
         m_audioMixer.SetFloat("LowPass", 22000f);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused)
+                Time.timeScale = 1;
+            else
+                Time.timeScale = 0;
+
+            paused = !paused;
+        }
     }
 
     private void FixedUpdate()

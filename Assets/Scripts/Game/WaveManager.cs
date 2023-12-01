@@ -52,6 +52,7 @@ public class WaveManager : MonoBehaviour
                     showText();
                     last_wave = false;
                 }
+                else { }
             else{
                 showText();
             }
